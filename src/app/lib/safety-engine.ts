@@ -5,20 +5,28 @@ export interface SafetyAlert {
 }
 
 export function evaluateSafety(
-  medications: string[],
+  selectedDrugIds: number[],
   interactions: any[]
 ): SafetyAlert[] {
   const alerts: SafetyAlert[] = [];
 
   for (const interaction of interactions) {
-    const hasDrugA = medications.includes(interaction.drug_a);
-    const hasDrugB = medications.includes(interaction.drug_b);
+    const drugAFound = selectedDrugIds.includes(
+      interaction.drug_a_id
+    );
 
-    if (hasDrugA && hasDrugB) {
+    const drugBFound = selectedDrugIds.includes(
+      interaction.drug_b_id
+    );
+
+    if (drugAFound && drugBFound) {
       alerts.push({
         severity: interaction.severity,
-        title: "Drug Interaction",
-        message: `${interaction.clinical_effect}. ${interaction.management}`
+        title: "Drug Interaction Alert",
+        message:
+          interaction.clinical_effect +
+          " | " +
+          interaction.management,
       });
     }
   }

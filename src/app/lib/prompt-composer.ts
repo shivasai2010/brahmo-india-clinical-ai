@@ -4,17 +4,20 @@ export function buildPrompt(
   context: ClinicalContext,
   doctorQuestion: string
 ): string {
+  const conditions = context.conditions ?? [];
+  const medications = context.medications ?? [];
+
   return `
 You are an Indian Clinical Decision Support AI.
 
 Patient:
-${context.patientName}
+${context.patientName || "Unknown"}
 
 Conditions:
-${context.conditions.join(", ")}
+${conditions.length > 0 ? conditions.join(", ") : "None reported"}
 
 Medications:
-${context.medications.join(", ")}
+${medications.length > 0 ? medications.join(", ") : "None reported"}
 
 Question:
 ${doctorQuestion}

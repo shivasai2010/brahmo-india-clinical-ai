@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BRAHMO India Clinical AI Assistant
 
-## Getting Started
+## Live Demo
+https://brahmo-india-clinical-ai.vercel.app
 
-First, run the development server:
+---
 
+## Overview
+
+BRAHMO India Clinical AI Assistant is a **clinical decision support web application** built using Next.js and AI.
+
+It is designed to assist doctors and healthcare professionals by providing **fast, AI-powered clinical guidance** for common medical conditions such as:
+
+- Type 2 Diabetes
+- Chronic Kidney Disease (CKD)
+- Heart Failure
+- General drug safety decisions
+
+The system uses **Google Gemini AI** to generate clinical insights and combines it with structured medical workflows to improve decision-making speed and safety.
+
+This project simulates a real-world **hospital assistant system** that can support doctors in outpatient and inpatient environments.
+
+---
+
+## Key Objectives of the Project
+
+- Reduce time required for clinical decision support
+- Provide quick drug safety checks (especially in CKD and comorbid conditions)
+- Assist doctors with standard treatment guidelines
+- Improve access to structured clinical knowledge using AI
+- Demonstrate a scalable AI healthcare assistant system
+
+---
+
+## Features
+
+### 1. AI Clinical Chat Assistant
+- Doctors can ask clinical questions
+- AI responds with structured medical guidance
+- Supports conditions like diabetes, CKD, HF
+
+### 2. Patient Profile Management
+- Store and manage patient-related clinical context
+- Helps simulate real hospital workflow
+
+### 3. Drug Formulary Support
+- Provides drug-related recommendations
+- Helps understand safe usage conditions
+
+### 4. Clinical Safety Alerts
+- Highlights risks in conditions like:
+  - CKD (Kidney impairment)
+  - Heart Failure
+  - Drug contraindications
+
+### 5. AI Integration
+- Powered by **Google Gemini AI**
+- Generates clinical reasoning-based responses
+
+### 6. Backend Integration
+- Supabase used for database and backend services
+- Supports scalable data handling
+
+---
+
+## Example Clinical Queries Supported
+
+- “What is the first-line treatment for Type 2 Diabetes?”
+- “What is the HbA1c target for most adults?”
+- “Is Metformin safe in CKD patients?”
+- “How should diabetes be managed in heart failure patients?”
+
+---
+
+## Tech Stack
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- Google Gemini AI
+- Supabase (Database & Backend)
+- Vercel (Deployment)
+
+---
+
+## Project Architecture
+
+Frontend (Next.js)
+        ↓
+Clinical Chat UI
+        ↓
+API Routes (Backend Logic)
+        ↓
+Google Gemini AI (Clinical Intelligence Engine)
+        ↓
+Supabase (Database & Patient Data Storage)
+
+---
+
+## Getting Started (Run Locally)
+
+### 1. Install dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+npm install

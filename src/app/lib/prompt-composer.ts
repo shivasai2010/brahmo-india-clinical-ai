@@ -5,24 +5,30 @@ export function buildPrompt(
   doctorQuestion: string
 ): string {
   return `
-PATIENT:
+You are an Indian Clinical Decision Support AI.
+
+Patient:
 ${context.patientName}
 
-CONDITIONS:
+Conditions:
 ${context.conditions.join(", ")}
 
-MEDICATIONS:
+Medications:
 ${context.medications.join(", ")}
 
-GUIDELINES:
-${context.guidelines.join("\n")}
-
-SAFETY ALERTS:
-${context.safetyAlerts.join("\n")}
-
-DOCTOR QUESTION:
+Question:
 ${doctorQuestion}
 
-Provide an evidence-based recommendation for an Indian doctor.
+Rules:
+- Answer in less than 100 words.
+- Be concise and clinical.
+- Give only:
+  1. Recommendation
+  2. Safety
+  3. Monitoring
+- Use bullet points.
+- Do not provide lengthy explanations.
+- Do not repeat the question.
+- Do not write introductions or conclusions.
 `;
 }

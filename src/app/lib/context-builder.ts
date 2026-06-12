@@ -1,23 +1,29 @@
 export interface ClinicalContext {
   patientName: string;
-  conditions: string[];
+  age?: number;
+  diagnosis: string[];
   medications: string[];
   guidelines: string[];
   safetyAlerts: string[];
 }
 
 export function buildContext(
-  patientName: string,
-  conditions: string[],
-  medications: string[],
-  guidelines: string[],
+  patient: any,
+  guidelines: any[],
   safetyAlerts: string[]
 ): ClinicalContext {
   return {
-    patientName,
-    conditions,
-    medications,
-    guidelines,
+    patientName: patient.name,
+    age: patient.age,
+    diagnosis: patient.diagnosis
+      ? patient.diagnosis.split(",").map((d: string) => d.trim())
+      : [],
+    medications: patient.medications
+      ? patient.medications.split(",").map((m: string) => m.trim())
+      : [],
+    guidelines: guidelines.map(
+      (g) => g.title || g.guideline_text || ""
+    ),
     safetyAlerts,
   };
 }
